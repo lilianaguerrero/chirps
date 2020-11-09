@@ -1,0 +1,12 @@
+<html> 
+    <body> 
+        {% if chirps %}
+            <h1>Chirps</h1>
+                {% for chirp in chirps %}
+                <ul> 
+                    <li>{{ chirp.c_id }} -- {{ chirp.text }}</li>
+                </ul>
+                {% endfor %}
+        {% endif %}
+    </body> 
+</html>
