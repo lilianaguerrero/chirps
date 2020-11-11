@@ -1,12 +1,18 @@
-<html> 
-    <body> 
+{% extends 'base.html' %}
+{% block content %}
+    <div class="chirp_div">
         {% if chirps %}
-            <h1>Chirps</h1>
-                {% for chirp in chirps %}
-                <ul> 
-                    <li>{{ chirp.c_id }} -- {{ chirp.text }}</li>
+            <h2>All Chirps</h2>
+            Number -- Chirp text -- Upvotes
+                <ul>    
+                    {% for chirp in chirps %}
+                        <form action="/index" method="post">
+                            <li>{{ chirp.c_id }} -- {{ chirp.text }} -- {{ chirp.up_votes }}
+                            <input type="submit" value="Upvote" name={{chirp.c_id}} />
+                            </li> 
+                        </form>
+                    {% endfor %}
                 </ul>
-                {% endfor %}
         {% endif %}
-    </body> 
-</html>
+    </div>
+{% endblock %}

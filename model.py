@@ -15,10 +15,12 @@ class Chirp(db.Model):
                     autoincrement = True,
                     primary_key = True)
     text = db.Column(db.String(140),
-                    nullable = False)
+                    nullable = True)
+    up_votes = db.Column(db.Integer,
+                        default=0)
     def __repr__(self):
         """respresentation of the info"""
-        return f"{self.c_id, self.text}"
+        return f"{self.c_id, self.text, self.up_votes}"
 
 # Helper function
 def connect_to_db(app):

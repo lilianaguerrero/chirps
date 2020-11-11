@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="chirp_form">
+        <h2>Create your own Chirp!</h2>
+        <h3>Please be mindful when posting your max 140 char Chirps. </h3>
+           <form action="/create_chirp" method="POST">
+                {% if error %}
+                    <h4> {{error}} </h4></br>
+                {% endif %}
+                <input type="text" maxlength="140" name="new_chirp"/>
+                <input type="submit" value="Submit"/>
+            </form>
+     </div>
+{% endblock %}
