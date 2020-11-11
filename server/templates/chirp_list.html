@@ -7,8 +7,9 @@
                 <ul>    
                     {% for chirp in chirps %}
                         <form action="/index" method="post">
-                            <li>{{ chirp.c_id }} -- {{ chirp.text }} -- {{ chirp.up_votes }}
-                            <input type="submit" value="Upvote" name={{chirp.c_id}} />
+                            <li>{{ chirp.c_id }} -- {{ chirp.text.upper() }} -- {{ chirp.up_votes }}
+                                <input type="submit" value="Upvote" name={{chirp.c_id}} />
+                                <input type="submit" value="Downvote" name={{chirp.c_id}} />
                             </li> 
                         </form>
                     {% endfor %}
